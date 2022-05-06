@@ -1,5 +1,5 @@
-import Simplelightbox from "simplelightbox";
-
+import SimpleLightbox from "simplelightbox";
+import "simplelightbox/dist/simple-lightbox.min.css";
 // Add imports above this line
 import { galleryItems } from './gallery-items';
 // Change code below this line
@@ -23,8 +23,8 @@ galleryContainer.insertAdjacentHTML('beforeend', galleryCardMarkup);
 
 galleryContainer.addEventListener(`click`, onViewingStart);
 
-let gallery = new Simplelightbox('.gallery a', {captionsData: "alt", captionDelay: 250});
+let gallery = new SimpleLightbox('.gallery a', {captionsData: "alt", captionDelay: 250});
 
 function onViewingStart(event) {
-    gallery.on('show.Simplelightbox')
+    gallery.on('show.simplelightbox')
 }
