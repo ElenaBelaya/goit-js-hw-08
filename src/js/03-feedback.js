@@ -44,12 +44,10 @@ if(formText) {
 
    refs.message.value = formTextParse.message;  
 
-   return formTextParse;
-   
    console.log(formTextParse);
    
-   //console.log(localStorage.getItem(STORAGE_KEY));
-   //console.log(datas);
+  
+   
 }
 
 }
