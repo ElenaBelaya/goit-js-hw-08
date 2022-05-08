@@ -26,8 +26,8 @@ function onFormSubmit(event) {
 
 function onFormElText(event) {
   
-  formData[event.target.name] = event.target.value; 
-
+  formData[event.target.name] = event.target.value;
+  
   localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 
 };
@@ -37,10 +37,10 @@ function onFormElText(event) {
 
     if(formText) {
       const formTextParse = JSON.parse(formText);
+      
+ refs.emailEl.value = formTextParse.email;
 
-    refs.emailEl.value = formTextParse.email;
-    
-    refs.message.value = formTextParse.message
+ refs.message.value = formTextParse.message;
      
     }
    
