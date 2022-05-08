@@ -26,28 +26,23 @@ function onFormSubmit(event) {
 
 function onFormElText(event) {
   
-    formData[event.target.name] = event.target.value;
-   
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
+  formData[event.target.name] = event.target.value; 
 
-    console.log(formData);
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 
 };
 
-function savedFormElText() {
-const formText = localStorage.getItem(STORAGE_KEY);
+  function savedFormElText() {
+    const formText = localStorage.getItem(STORAGE_KEY);  
 
-if(formText) {
- const formTextParse = JSON.parse(formText);
- 
-   refs.emailEl.value = formTextParse.email;
+    if(formText) {
+      const formTextParse = JSON.parse(formText);
 
-   refs.message.value = formTextParse.message;  
-
-   console.log(formTextParse);
-   
-  
+    refs.emailEl.value = formTextParse.email;
+    
+    refs.message.value = formTextParse.message
+     
+    }
    
 }
 
-}
