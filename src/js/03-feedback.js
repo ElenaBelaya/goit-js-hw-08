@@ -12,8 +12,7 @@ const formElText = refs.formEl.addEventListener(`input`, throttle(onFormElText, 
 
 savedFormElText();    
 
-
-const formData = {};
+const formData = {email: ' ', message: ' '};
 
 function onFormSubmit(event) {
  event.preventDefault();
@@ -26,22 +25,31 @@ function onFormSubmit(event) {
 }
 
 function onFormElText(event) {
-   
+  
     formData[event.target.name] = event.target.value;
-    
+   
     localStorage.setItem(STORAGE_KEY, JSON.stringify(formData));
 
-    
+    console.log(formData);
 
-}
+};
 
 function savedFormElText() {
 const formText = localStorage.getItem(STORAGE_KEY);
 
 if(formText) {
  const formTextParse = JSON.parse(formText);
+ 
+   refs.emailEl.value = formTextParse.email;
 
- refs.emailEl.value = formTextParse.email;
- refs.message.value = formTextParse.message;
+   refs.message.value = formTextParse.message;  
+
+   return formTextParse;
+   
+   console.log(formTextParse);
+   
+   //console.log(localStorage.getItem(STORAGE_KEY));
+   //console.log(datas);
 }
+
 }
