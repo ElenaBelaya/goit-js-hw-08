@@ -18,7 +18,7 @@ let formData = {email: ' ', message: ' '};
 function onFormSubmit(event) {
  event.preventDefault();
 
- //console.log(formData);
+ console.log(formData);
 
  localStorage.removeItem(STORAGE_KEY);
 
