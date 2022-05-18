@@ -8,7 +8,14 @@ const iframe = document.querySelector('iframe');
         player.setCurrentTime(localStorage.getItem(KEY))
         .then(function(seconds) { 
 
-      });
+      }).catch(function(error) {
+        switch (error.name) {
+            case 'RangeError':
+               break;    
+            default:
+               break;
+        }
+    });;
     
     player.on('timeupdate', throttle(timeUpdate, 1000)); 
 
