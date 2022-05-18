@@ -10,22 +10,9 @@ message: document.querySelector(`textarea`),
 const formElSubmit = refs.formEl.addEventListener(`submit`, onFormSubmit);
 const formElText = refs.formEl.addEventListener(`input`, throttle(onFormElText, 500));
 
+savedFormElText();
 
-   
-
-let formData = {email: ' ', message: ' '};
-
-function onFormSubmit(event) {
- event.preventDefault();
-
- console.log(formData);
-
- localStorage.removeItem(STORAGE_KEY);
-
- event.currentTarget.reset();
-}
-
-savedFormElText(); 
+let formData = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {}; 
  
 function onFormElText(event) {
   
@@ -42,11 +29,18 @@ const formText = localStorage.getItem(STORAGE_KEY);
 
  const formTextParse = JSON.parse(formText);
 
-refs.emailEl.value = formTextParse.email;
+refs.emailEl.value = formTextParse.email || '';
     
-refs.message.value = formTextParse.message;
-  
- }
-   
+refs.message.value = formTextParse.message || '';  
+ }   
 }
   
+function onFormSubmit(event) {
+  event.preventDefault();
+ 
+  console.log(formData);
+ 
+  localStorage.removeItem(STORAGE_KEY);
+ 
+  event.currentTarget.reset();
+ }
